@@ -1,0 +1,72 @@
+{
+    "name": "@carchalabs/monitoring",
+    "version": "1.0.0",
+    "description": "Express middleware that sends request count, status and latency per route to Carcha Labs Monitoring.",
+    "keywords": [
+        "monitoring",
+        "express",
+        "latency",
+        "http",
+        "slo",
+        "carchalabs"
+    ],
+    "author": "Bugra Aydemir",
+    "license": "SEE LICENSE IN LICENSE",
+    "homepage": "https://monitoring.carchalabs.com",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/carcha-labs/monitoring-sdk.git"
+    },
+    "bugs": {
+        "url": "https://github.com/carcha-labs/monitoring-sdk/issues"
+    },
+    "type": "module",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            },
+            "require": {
+                "types": "./dist/index.d.cts",
+                "default": "./dist/index.cjs"
+            }
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "sideEffects": false,
+    "engines": {
+        "node": ">=22"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "tsup",
+        "lint": "eslint .",
+        "typecheck": "tsc --noEmit",
+        "test": "vitest run",
+        "check": "npm run lint && npm run typecheck && npm test && npm run build && node scripts/verify-package.mjs",
+        "prepublishOnly": "npm run check"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@types/express": "^5.0.6",
+        "@types/node": "^22.20.5",
+        "eslint": "^10.12.0",
+        "express": "^5.3.0",
+        "globals": "^17.13.0",
+        "tsup": "^8.5.1",
+        "typescript": "~5.9",
+        "typescript-eslint": "^8.71.1",
+        "vitest": "^5.0.3"
+    }
+}
